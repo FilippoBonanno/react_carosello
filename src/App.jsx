@@ -1,33 +1,35 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import backgrounJumbotrone_1 from './assets/backgrounJumbotrone_1.jpg'
+import backgrounJumbotrone_2 from './assets/backgrounJumbotrone_2.jpg'
+import backgrounJumbotrone_3 from './assets/backgrounJumbotrone_3.jpg'
+
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(1)
+  const images = [backgrounJumbotrone_1, backgrounJumbotrone_2, backgrounJumbotrone_3]
+  const next = () => {
+    setCount(count + 1)
+    if (count === 2) {
+      setCount(0)
+    }
+  }
+
+  const prev = () => {
+    setCount(count - 1)
+    if (count === 0) {
+      setCount(2)
+    }
+  }
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='container'>
+        <img src={images[count]} className='rounded-lg ' alt="" />
+        <button onClick={prev}>Prev</button>
+        <button onClick={next}>Next</button>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
