@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import './App.css'
-import backgrounJumbotrone_1 from './assets/backgrounJumbotrone_1.jpg'
-import backgrounJumbotrone_2 from './assets/backgrounJumbotrone_2.jpg'
-import backgrounJumbotrone_3 from './assets/backgrounJumbotrone_3.jpg'
+import image_1 from './assets/backgrounJumbotrone_1.jpg'
+import image_2 from './assets/backgrounJumbotrone_2.jpg'
+import image_3 from './assets/backgrounJumbotrone_3.jpg'
 
 
 function App() {
   const [count, setCount] = useState(1)
-  const images = [backgrounJumbotrone_1, backgrounJumbotrone_2, backgrounJumbotrone_3]
+  const images = [image_1, image_2, image_3]
   const next = () => {
     setCount(count + 1)
     if (count === 2) {
